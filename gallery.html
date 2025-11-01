@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery — Rushikesh Gadekar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header>
+      <div class="container nav">
+        <div class="logo">Rushikesh Gadekar</div>
+        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="section">
+        <div class="container">
+          <h1>Gallery</h1>
+          
+          <div class="gallery-categories">
+            <button class="gallery-filter active" data-category="all">All</button>
+            <button class="gallery-filter" data-category="robotics">Robotics</button>
+            <button class="gallery-filter" data-category="events">Events</button>
+            <button class="gallery-filter" data-category="projects">Projects</button>
+          </div>
+
+          <div class="gallery-grid">
+            <!-- Robotics -->
+            <figure class="gallery-item" data-category="robotics">
+              <img src="images/gallery1.svg" alt="Line follower robot in action" loading="lazy" />
+              <figcaption>Line Follower Robot Testing</figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-category="robotics">
+              <img src="images/gallery2.svg" alt="Robot assembly process" loading="lazy" />
+              <figcaption>Building the Navigation System</figcaption>
+            </figure>
+
+            <!-- Events -->
+            <figure class="gallery-item" data-category="events">
+              <img src="images/gallery1.svg" alt="Tech fest presentation" loading="lazy" />
+              <figcaption>Presenting at IIST Tech Fest</figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-category="events">
+              <img src="images/gallery2.svg" alt="Workshop session" loading="lazy" />
+              <figcaption>Conducting Electronics Workshop</figcaption>
+            </figure>
+
+            <!-- Projects -->
+            <figure class="gallery-item" data-category="projects">
+              <img src="images/project1.svg" alt="Data logger prototype" loading="lazy" />
+              <figcaption>Environmental Data Logger</figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-category="projects">
+              <img src="images/gallery2.svg" alt="PCB design" loading="lazy" />
+              <figcaption>Avionics PCB Assembly</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 Rushikesh Gadekar</p>
+        <p class="socials">
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a> •
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a> •
+          <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener">Instagram</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

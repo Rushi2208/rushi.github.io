@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Rising Phoenix — Rushikesh Gadekar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .phoenix-hero {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        background: radial-gradient(circle at 20% 10%, rgba(0,173,181,0.08), transparent 8%), linear-gradient(180deg,#0b3a3c,#071e20);
+        color: #fff;
+        padding: 4rem 1rem;
+      }
+
+      .phoenix-glow {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: conic-gradient(#ff7a18, #ff4e50, #ff7a18);
+        filter: blur(18px) saturate(140%);
+        animation: pulse 4s infinite ease-in-out;
+        margin-bottom: 1.25rem;
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(0.9); opacity: 0.8 }
+        50% { transform: scale(1.06); opacity: 1 }
+        100% { transform: scale(0.9); opacity: 0.8 }
+      }
+
+      .phoenix-card { max-width: 800px; margin: auto; }
+      .phoenix-card p { color: #dbeafe; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="logo">Rushikesh Gadekar</div>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="phoenix-hero">
+        <div class="phoenix-glow" aria-hidden="true"></div>
+        <div class="phoenix-card">
+          <h1>Rising Phoenix</h1>
+          <p>
+            The "Rising Phoenix" page is a creative/artistic add-on to the portfolio. It represents an
+            abstract phoenix rising — a personal symbol inspired by the five elements (air, water, fire,
+            earth, and sky). Use this page as an interactive poster or as a downloadable artistic piece to
+            express your creative side alongside technical work.
+          </p>
+          <p>
+            Practical uses: a portfolio art piece, an animated background for presentations, or a separate
+            downloadable poster. You can expand this page into an interactive demo (canvas/WebGL) later.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 Rushikesh Gadekar</p>
+      </div>
+    </footer>
+  </body>
+</html>

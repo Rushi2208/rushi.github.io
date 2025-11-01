@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects — Rushikesh Gadekar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header>
+      <div class="container nav">
+        <div class="logo">Rushikesh Gadekar</div>
+        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="section">
+        <div class="container">
+          <h1>Projects</h1>
+          
+          <div class="projects-grid">
+            <article class="project-card">
+              <img src="images/project1.svg" alt="Autonomous Line Follower Robot" class="project-image" loading="lazy" />
+              <div class="project-content">
+                <h2>Autonomous Line Follower</h2>
+                <p>Microcontroller-based robot with PID control and obstacle detection. Features real-time path correction and emergency stop capabilities.</p>
+                <div class="tech-stack">
+                  <span class="tech-tag">AVR</span>
+                  <span class="tech-tag">C</span>
+                  <span class="tech-tag">Sensors</span>
+                </div>
+                <ul class="project-details">
+                  <li>Implemented PID control algorithm for smooth navigation</li>
+                  <li>Added ultrasonic sensors for obstacle avoidance</li>
+                  <li>Achieved 95% accuracy in path following</li>
+                </ul>
+                <a href="#" class="btn">View Project</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="images/project1.svg" alt="Embedded Data Logger" class="project-image" loading="lazy" />
+              <div class="project-content">
+                <h2>Embedded Data Logger</h2>
+                <p>Low-power data logger for environmental sensing with SD logging and power management. Perfect for long-term deployment in remote locations.</p>
+                <div class="tech-stack">
+                  <span class="tech-tag">ARM Cortex-M</span>
+                  <span class="tech-tag">FreeRTOS</span>
+                  <span class="tech-tag">C++</span>
+                </div>
+                <ul class="project-details">
+                  <li>Implemented power-saving sleep modes</li>
+                  <li>Created efficient data compression algorithm</li>
+                  <li>3-month battery life achieved</li>
+                </ul>
+                <a href="#" class="btn">View Project</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="images/project1.svg" alt="Mini Rocket Avionics" class="project-image" loading="lazy" />
+              <div class="project-content">
+                <h2>Mini Rocket Avionics</h2>
+                <p>Telemetry and recovery electronics for small launch vehicles. Complete system for tracking, data logging, and parachute deployment.</p>
+                <div class="tech-stack">
+                  <span class="tech-tag">STM32</span>
+                  <span class="tech-tag">Telemetry</span>
+                  <span class="tech-tag">Sensors</span>
+                </div>
+                <ul class="project-details">
+                  <li>Designed PCB with altimeter and IMU</li>
+                  <li>Implemented dual deployment system</li>
+                  <li>Successfully recovered 3 test flights</li>
+                </ul>
+                <a href="#" class="btn">View Project</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 Rushikesh Gadekar</p>
+        <p class="socials">
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a> •
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a> •
+          <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener">Instagram</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
