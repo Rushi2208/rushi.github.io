@@ -89,6 +89,39 @@ class ClickEffect {
 
 const clickEffect = new ClickEffect();
 
+// Modal functionality
+const modal = document.getElementById('profileModal');
+const profilePic = document.querySelector('.nav-profile-pic');
+const closeModalBtn = document.querySelector('.close-modal');
+
+function openModal() {
+  modal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modal.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+// Event listeners for modal
+profilePic.addEventListener('click', openModal);
+closeModalBtn.addEventListener('click', closeModal);
+
+// Close modal when clicking outside
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('show')) {
+    closeModal();
+  }
+});
+
 // Smooth scroll with custom easing
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {

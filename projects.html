@@ -9,9 +9,40 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-profile">
+          <img src="images/profile.jpg" alt="Rushikesh Gadekar" class="modal-profile-pic">
+          <h2>Rushikesh Gadekar</h2>
+          <p>Digital Design Engineer @ Texas Instruments</p>
+          <div class="modal-social-links">
+            <a href="mailto:rushikeshgadekar@gmail.com" class="social-link">
+              <i class="fas fa-envelope"></i>
+              <span>Email Me</span>
+            </a>
+            <a href="https://linkedin.com/in/rushikeshgadekar" target="_blank" rel="noopener" class="social-link">
+              <i class="fab fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://instagram.com/rushii_22_" target="_blank" rel="noopener" class="social-link">
+              <i class="fab fa-instagram"></i>
+              <span>Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <header>
       <div class="container nav">
-        <div class="logo">Rushikesh Gadekar</div>
+        <div class="nav-brand">
+          <img src="images/profile.jpg" alt="" class="nav-profile-pic" id="profileBtn">
+          <a href="index.html" class="logo-link">
+            <div class="logo">Rushikesh Gadekar</div>
+          </a>
+        </div>
         <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
         <nav aria-label="Main navigation">
           <ul class="nav-links">
