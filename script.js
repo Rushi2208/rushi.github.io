@@ -5,26 +5,16 @@ class ClickEffect {
     this.lastTime = performance.now();
     this.deltaTime = 0;
     
-    // Create canvas
     this.canvas = document.createElement('canvas');
     this.ctx = this.canvas.getContext('2d');
     this.canvas.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 9999;
+      position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
     `;
     document.body.appendChild(this.canvas);
     
-    // Set canvas size
     this.resizeCanvas();
     window.addEventListener('resize', () => this.resizeCanvas());
-    
-    // Start animation loop
     this.animate();
-    
-    // Add click listener
     document.addEventListener('click', (e) => this.createBurst(e.clientX, e.clientY));
   }
   
@@ -34,30 +24,25 @@ class ClickEffect {
   }
   
   createBurst(x, y) {
-    // Create particle burst on click
     for (let i = 0; i < 12; i++) {
       const angle = (i / 12) * Math.PI * 2;
       const velocity = 4 + Math.random() * 2;
       this.particles.push({
-        x,
-        y,
+        x, y,
         size: Math.random() * 4 + 2,
         speedX: Math.cos(angle) * velocity,
         speedY: Math.sin(angle) * velocity,
         life: 1,
-        color: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim()
+        color: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#00f0ff'
       });
     }
   }
   
   updateParticles() {
     this.particles = this.particles.filter(p => p.life > 0);
-    
     this.particles.forEach(p => {
-      p.x += p.speedX;
-      p.y += p.speedY;
-      p.speedX *= 0.98; // Add friction
-      p.speedY *= 0.98;
+      p.x += p.speedX; p.y += p.speedY;
+      p.speedX *= 0.98; p.speedY *= 0.98;
       p.life -= this.deltaTime * 0.001;
       p.size *= 0.95;
     });
@@ -65,7 +50,6 @@ class ClickEffect {
   
   drawParticles() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    
     this.particles.forEach(p => {
       this.ctx.beginPath();
       this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
@@ -87,49 +71,41 @@ class ClickEffect {
   }
 }
 
-const clickEffect = new ClickEffect();
+// Initialize only on non-mobile for better performance
+if (window.innerWidth > 768) {
+  new ClickEffect();
+}
 
-// Modal functionality
+// Modal functionality (Safe checks added)
 const modal = document.getElementById('profileModal');
-const profilePic = document.querySelector('.nav-profile-pic');
+const profilePic = document.getElementById('profileBtn');
 const closeModalBtn = document.querySelector('.close-modal');
 
-function openModal() {
-  modal.classList.add('show');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  modal.classList.remove('show');
-  document.body.style.overflow = '';
-}
-
-// Event listeners for modal
-profilePic.addEventListener('click', openModal);
-closeModalBtn.addEventListener('click', closeModal);
-
-// Close modal when clicking outside
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    closeModal();
+if (modal && profilePic && closeModalBtn) {
+  function openModal() {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
   }
-});
 
-// Close modal with Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.classList.contains('show')) {
-    closeModal();
+  function closeModal() {
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
   }
-});
+
+  profilePic.addEventListener('click', openModal);
+  closeModalBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('show')) closeModal(); });
+}
 
 // Smooth scroll with custom easing
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
     const href = this.getAttribute("href");
-    if (href && href.startsWith('#')) {
-      e.preventDefault();
+    if (href && href.startsWith('#') && href.length > 1) {
       const target = document.querySelector(href);
       if (!target) return;
+      e.preventDefault();
 
       const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
       const startPosition = window.pageYOffset;
@@ -141,38 +117,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (start === null) start = currentTime;
         const timeElapsed = currentTime - start;
         const progress = Math.min(timeElapsed / duration, 1);
-        
-        // Easing function
         const ease = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
         
         window.scrollTo(0, startPosition + distance * ease(progress));
         if (timeElapsed < duration) requestAnimationFrame(animation);
       }
-
       requestAnimationFrame(animation);
     }
   });
 });
 
 // Enhanced reveal animation on scroll
-const observerOptions = {
-  root: null,
-  threshold: 0.1,
-  rootMargin: '0px'
-};
-
+const observerOptions = { root: null, threshold: 0.1, rootMargin: '0px' };
 const revealSection = (entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      
-      // Animate children with delay
       const elements = entry.target.querySelectorAll('.card, .tech-tag, .btn, img');
       elements.forEach((el, i) => {
         el.style.transitionDelay = `${i * 0.1}s`;
         el.classList.add('animate-in');
       });
-      
       observer.unobserve(entry.target);
     }
   });
@@ -183,7 +148,7 @@ document.querySelectorAll('.section').forEach(section => {
   sectionObserver.observe(section);
 });
 
-// Enhanced mobile nav with animations
+// Enhanced mobile nav
 const navToggle = document.getElementById('nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -192,7 +157,6 @@ if (navToggle && navLinks) {
     navLinks.classList.toggle('show');
     navToggle.classList.toggle('active');
     
-    // Animate links with delay
     const links = navLinks.querySelectorAll('a');
     links.forEach((link, i) => {
       if (navLinks.classList.contains('show')) {
@@ -206,54 +170,33 @@ if (navToggle && navLinks) {
   });
 }
 
-// Circuit board animation on hover
-document.body.addEventListener('mousemove', (e) => {
-  const mouseX = e.clientX / window.innerWidth;
-  const mouseY = e.clientY / window.innerHeight;
-  
-  document.body.style.setProperty('--mouse-x', mouseX);
-  document.body.style.setProperty('--mouse-y', mouseY);
-  
-  const circuitPattern = document.body.querySelector('.circuit-pattern');
-  if (circuitPattern) {
-    circuitPattern.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
-  }
-});
-
-// Contact form handling (Formspree placeholder)
+// Contact form handling
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
-if (form) {
+if (form && statusEl) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
-
-    // Replace the URL below with your Formspree endpoint (e.g. https://formspree.io/f/yourId)
-    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/your-form-id';
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mnnjlklp'; // UPDATE THIS WITH YOUR ID
 
     try {
       statusEl.textContent = 'Sending…';
       const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
+        method: 'POST', body: data, headers: { 'Accept': 'application/json' }
       });
 
       if (res.ok) {
         form.reset();
         statusEl.textContent = 'Message sent — thank you!';
-        statusEl.classList.remove('error');
-        statusEl.classList.add('success');
+        statusEl.className = 'form-status success';
       } else {
         const json = await res.json();
-        statusEl.textContent = (json && json.error) ? json.error : 'There was a problem sending your message.';
-        statusEl.classList.add('error');
+        statusEl.textContent = (json && json.error) ? json.error : 'Problem sending message.';
+        statusEl.className = 'form-status error';
       }
     } catch (err) {
       statusEl.textContent = 'Network error — try again later.';
-      statusEl.classList.add('error');
+      statusEl.className = 'form-status error';
     }
   });
 }

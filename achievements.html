@@ -10,52 +10,53 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <!-- Profile Modal -->
-    <div id="profileModal" class="modal">
-      <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <div class="modal-profile">
-          <img src="images/profile.jpg" alt="Rushikesh Gadekar" class="modal-profile-pic">
-          <h2>Rushikesh Gadekar</h2>
-          <p>Digital Design Engineer @ Texas Instruments</p>
-          <div class="modal-social-links">
-            <a href="mailto:rushikeshgadekar@gmail.com" class="social-link">
-              <i class="fas fa-envelope"></i>
-              <span>Email Me</span>
-            </a>
-            <a href="https://www.linkedin.com/in/rushik22/" target="_blank" rel="noopener" class="social-link">
-              <i class="fab fa-linkedin"></i>
-              <span>LinkedIn</span>
-            </a>
-            <a href="https://instagram.com/rushii_22_" target="_blank" rel="noopener" class="social-link">
-              <i class="fab fa-instagram"></i>
-              <span>Instagram</span>
-            </a>
-          </div>
+    <div id="profileModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <span class="close-modal" aria-label="Close modal">&times;</span>
+      <div class="modal-profile">
+        <img src="images/profile.jpg" alt="Rushikesh Gadekar" class="modal-profile-pic">
+        <h2>Rushikesh Gadekar</h2>
+        <p>Digital Design Engineer @ Texas Instruments</p>
+        <div class="modal-social-links">
+          <a href="mailto:rushikeshgadekar@gmail.com" class="social-link">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <span>Email Me</span>
+          </a>
+          <a href="https://www.linkedin.com/in/rushik22/" target="_blank" rel="noopener noreferrer" class="social-link">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://instagram.com/rushii.gadekar" target="_blank" rel="noopener noreferrer" class="social-link">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+            <span>Instagram</span>
+          </a>
         </div>
       </div>
     </div>
+  </div>
 
-    <header>
-      <div class="container nav">
-        <div class="nav-brand">
-          <img src="images/profile.jpg" alt="" class="nav-profile-pic" id="profileBtn">
-          <a href="index.html" class="logo-link">
-            <div class="logo">Rushikesh Gadekar</div>
-          </a>
-        </div>
-        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
-        <nav aria-label="Main navigation">
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-          </ul>
-        </nav>
+  <header>
+    <div class="container nav">
+      <div class="nav-brand">
+        <img src="images/profile.jpg" alt="Profile avatar" class="nav-profile-pic" id="profileBtn">
+        <a href="index.html" class="logo-link">
+          <div class="logo">Rushikesh Gadekar</div>
+        </a>
       </div>
-    </header>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
     <main id="main">
       <section class="section">
@@ -107,15 +108,31 @@
     </main>
 
     <footer>
-      <div class="container">
-        <p>© 2025 Rushikesh Gadekar</p>
-        <p class="socials">
-          <a href="https://github.com/rushikeshgadekar" target="_blank" rel="noopener">GitHub</a> •
-          <a href="https://www.linkedin.com/in/rushik22/" target="_blank" rel="noopener">LinkedIn</a> •
-          <a href="https://instagram.com/rushii_22_" target="_blank" rel="noopener">Instagram</a>
-        </p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">RG</div>
+          <p class="footer-tagline">Building the future, one circuit at a time.</p>
+        </div>
+        <div class="footer-links">
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/rushik22/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="https://instagram.com/rushii.gadekar" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/rushikeshgadekar" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
       </div>
-    </footer>
+      <div class="footer-bottom">
+        <p>© 2025 Rushikesh Gadekar | Designed with <i class="fas fa-heart" aria-hidden="true"></i> and <i class="fas fa-microchip" aria-hidden="true"></i></p>
+      </div>
+    </div>
+  </footer>
 
     <script src="script.js" defer></script>
   </body>
