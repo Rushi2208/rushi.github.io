@@ -1527,25 +1527,30 @@ header {
   font-size: 1.4rem;
 }
 
-/* ===== Hero ===== */
+
+/* ===== Hero (updated for modern electronics aesthetic) ===== */
 #hero {
-  background: linear-gradient(135deg, var(--dark), rgba(127, 0, 255, 0.1));
+  background: linear-gradient(135deg, rgba(10,17,40,0.95), rgba(15,24,48,0.95));
   color: var(--light);
-  padding: 6rem 0;
+  padding: 6.5rem 0 4rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid rgba(0,240,255,0.06);
 }
 
+/* subtle animated radial accent */
 #hero::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, transparent 30%, rgba(0, 240, 255, 0.1) 70%);
-  animation: gradient 15s ease infinite;
+  top: -20%;
+  left: -10%;
+  width: 60rem;
+  height: 60rem;
+  background: radial-gradient(circle at 30% 30%, rgba(0,240,255,0.06), transparent 20%), radial-gradient(circle at 70% 70%, rgba(127,0,255,0.04), transparent 25%);
+  filter: blur(40px);
+  transform: translateZ(0);
+  animation: orbFloat 30s linear infinite;
   z-index: 0;
 }
 
@@ -1558,7 +1563,101 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* animated gradient name */
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--secondary), #00ffd8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: 0.4px;
+  animation: gradient 6s linear infinite;
+  text-shadow: 0 0 12px rgba(0,240,255,0.08);
+}
+
+/* small subtitle under hero */
+.hero-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-top: 0.25rem;
+}
+
+/* tech badge */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(90deg, rgba(0,240,255,0.06), rgba(127,0,255,0.03));
+  color: var(--primary);
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0,240,255,0.06);
+  font-weight: 600;
+}
+
+/* featured project card inside hero */
+.featured-project {
+  margin-top: 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(0,240,255,0.06);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  max-width: 720px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.featured-project .fp-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(0,240,255,0.12), rgba(127,0,255,0.08));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--primary);
+}
+
+.featured-project .fp-body h4 {
+  margin: 0 0 0.25rem 0;
+  color: var(--light);
+}
+
+.featured-project .fp-body p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* subtle tilt hover for project cards */
+.project-card {
+  transition: transform 0.45s cubic-bezier(.16,.84,.44,1), box-shadow 0.3s;
+  will-change: transform;
+}
+.project-card:hover {
+  transform: translateY(-12px) rotateX(6deg) scale(1.01);
+  box-shadow: 0 30px 60px rgba(0,240,255,0.06);
+}
+
+/* code-like monospace highlights */
+.code-tag {
+  font-family: 'Space Mono', monospace;
+  background: rgba(0,0,0,0.18);
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  color: var(--primary);
+  font-weight: 700;
 }
 
 .profile-pic {
